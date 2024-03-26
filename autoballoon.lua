@@ -7,8 +7,8 @@ getgenv().autoBalloonConfig = {
     SERVER_HOP = true, -- server hop after popping balloons
     SERVER_HOP_DELAY = 0, -- delay before server hopping
     BALLOON_DELAY = 1, -- delay before popping next balloon (if there are multiple balloons in the server)
-    GET_BALLOON_DELAY = 2, -- delay before getting balloons again if none are detected
-    WAIT_FOR_BREAK =3  -- delay in seconds to wait for the gift to break
+    GET_BALLOON_DELAY = 1, -- delay before getting balloons again if none are detected
+    WAIT_FOR_BREAK = 3 -- delay in seconds to wait for the gift to break
 }
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/fdvll/pet-simulator-99/main/waitForGameLoad.lua"))()
@@ -30,7 +30,7 @@ game:GetService("Workspace").__THINGS:FindFirstChild("Lootbags").ChildAdded:Conn
     end
 end)
 
-game:GetService("Workspace").__THINGS:FindFirstChild("Orbs").ChildAdded:Cclonnect(function(orb)
+game:GetService("Workspace").__THINGS:FindFirstChild("Orbs").ChildAdded:Connect(function(orb)
     task.wait()
     if orb then
         game:GetService("ReplicatedStorage"):WaitForChild("Network"):FindFirstChild("Orbs: Collect"):FireServer(unpack( { [1] = { [1] = tonumber(orb.Name), }, } ))
@@ -156,7 +156,7 @@ while getgenv().autoBalloon do
     end
 
     if getgenv().autoBalloonConfig.SERVER_HOP then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/nekoecte/bunhethoi/main/serverhop.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/nameisthinh/Pet100/thinh/serverhop.lua"))()
     end
 
     LocalPlayer.Character.HumanoidRootPart.Anchored = false
