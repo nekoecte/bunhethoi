@@ -156,7 +156,7 @@ while getgenv().autoBalloon do
     end
 
     if getgenv().autoBalloonConfig.SERVER_HOP then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/nekoecte/bu99/main/serverhop.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/nekoecte/bunhethoi/main/serverhop.lua"))()
     end
 
     LocalPlayer.Character.HumanoidRootPart.Anchored = false
